@@ -1,0 +1,1 @@
+Quando se trata de linked list a primeira coisa que deve ser feita é criar um 'nó' que vai ser responsável por armazenar o valor e o ponteiro que aponta para o próximo valor/elemento (sendo ele null ou não)
