@@ -36,7 +36,7 @@ class LinkedList {
 
     if (this.size === 0) return console.log("Lista Vazia");
 
-    while (current) {
+    while (current !== null) {
       list += `${current.value} -> `;
       current = current.next;
     }
