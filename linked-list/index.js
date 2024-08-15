@@ -1,51 +1,51 @@
-/* const n1 = {
-  valor: 100,
-};
-const n2 = {
-  valor: 200,
-};
-n1.pointer = n2;
-console.log(n1);
- */
-
+/*Each node in a linked list contains data and a reference to the next node. In JavaScript, you can create this using a class.*/
 class Node {
   value = null;
-  pointer = null;
-
-  constructor(value, pointer) {
+  next = null;
+  constructor(value) {
     this.value = value;
-    this.pointer = pointer;
+    this.next;
   }
 }
-
+/*The linked list class will manage the nodes. It typically has methods to add, remove, and display nodes. */
 class LinkedList {
   head = null;
   size = 0;
 
   constructor() {
     this.head;
-    this.size;
+    this.size = 0;
   }
 
-  // Adicionando sempre no head/inicio da lista
-  addFirst(value) {
-    this.head = new Node(value, this.head);
+  add(value) {
+    let newNode = new Node(value);
+    if (this.size === 0) {
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      while (current.next !== null) {
+        current = current.next;
+      }
+      current.next = newNode;
+    }
     this.size++;
   }
-  // Exibindo todos os items na lista
-  printAllList() {
-    while (this.head) {
-      console.log(this.head.value);
-      this.head = this.head.pointer;
-    }
-  }
+  printList() {
+    let current = this.head;
+    let list = ``;
 
-  printSizeOfList() {
-    console.log(`O tamanho da lista é: ${this.size}`);
+    if (this.size === 0) return console.log("Lista Vazia");
+
+    while (current) {
+      list += `${current.value} -> `;
+      current = current.next;
+    }
+
+    console.log(list + null);
   }
 }
-const ll = new LinkedList();
-ll.addFirst(100);
 
-ll.printAllList();
-ll.printSizeOfList();
+const list = new LinkedList();
+list.add(1);
+list.add(2);
+list.printList();
